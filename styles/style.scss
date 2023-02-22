@@ -1,0 +1,20 @@
+/*  I M P O R T A C I O N E S  */
+@font-face {
+  font-family: Inter;
+  src: url(../fonts/Inter/Inter-VariableFont_slnt_wght.ttf);
+}
+@font-face {
+  font-family: Sora;
+  src: url(../fonts/Sora/Sora-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: Audiowide;
+  src: url(../fonts/Audiowide/Audiowide-Regular.ttf);
+}
+@import "./login";
+@import "./navs";
+@import "./container";
+@import "./footer";
+@import "./_generales";
+@import "./etiquetas";
+@import "./bootstrap";

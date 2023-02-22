@@ -1,0 +1,351 @@
+@mixin btn-principal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c1f22;
+  height: 60px;
+  color: #f0f0f0;
+  font-size: 1rem;
+  font-family: Sora;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 20px;
+}
+
+@mixin mini-galery__img {
+  width: 80px;
+  height: 80px;
+  margin: 0 3px;
+}
+
+@mixin line-main {
+  background-color: #34383f;
+  margin: 2rem 0;
+  padding-bottom: 2px;
+  width: 100%;
+}
+
+#container {
+  width: 86%;
+  margin: auto;
+  @media (min-width: 1024px) {
+    width: 70%;
+  }
+  .profile {
+    display: grid;
+    grid-template-areas:
+      ". avatar"
+      "user avatar"
+      "lv avatar"
+      "logros logros";
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    @media (min-width: 768px) {
+      grid-template-areas:
+        "user . . avatar"
+        "logros . lv avatar";
+      grid-template-columns: 3fr 1fr 1.4fr 2fr;
+      grid-template-rows: 1fr 1fr;
+      max-height: 320px;
+      border: #34383f;
+      border-style: solid;
+      border-radius: 20px;
+      border-width: 2px;
+      padding: 1rem;
+      margin-bottom: 3rem;
+    }
+    .profile__user {
+      grid-area: user;
+    }
+    .profile__achievements {
+      grid-area: logros;
+      .profile__achievements__groups {
+        width: 100%;
+        display: flex;
+        gap: 4px;
+        .profile__achievements__groups__icon {
+          margin-top: 1rem;
+          width: 100%;
+          max-width: 46px;
+        }
+      }
+    }
+    .profile__lv {
+      grid-area: lv;
+      .profile__lv__groups {
+        width: 100%;
+        display: flex;
+        gap: 4px;
+      }
+    }
+    .profile__avatar {
+      width: 100%;
+      min-width: 100px;
+      max-width: 220px;
+      grid-area: avatar;
+      @media (min-width: 768px) {
+        height: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+  #store {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    // .group {
+    //   display: grid;
+    //   grid-template-columns: 1rem 1fr 1fr;
+    //   grid-gap: 2rem;
+    //   align-items: center;
+    //   @media (min-width: 768px) {
+    //     flex-direction: row;
+    //     align-items: center;
+    //     gap: 2rem;
+    //   }
+    .group__game {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin: 1rem 0;
+      @media (min-width: 768px) {
+        margin: 1rem 2rem 1rem 0;
+      }
+      .group__game__img {
+        width: 90px;
+        height: 90px;
+      }
+      .group__game__info {
+        margin-left: 10px;
+        min-width: 152px;
+        .group__game__info__time {
+          font-weight: 400;
+          font-size: 14px;
+        }
+        .group__game__info__other {
+          font-size: 14px;
+          font-weight: 300;
+          font-style: italic;
+          opacity: 50%;
+        }
+      }
+    }
+  }
+  #main-game {
+    display: grid;
+    row-gap: 1rem;
+    column-gap: 2rem;
+    align-items: center;
+    @media (min-width: 768px) {
+      grid-template-areas:
+        "img card"
+        "galery .";
+      grid-template-columns: 4fr 1fr;
+      grid-template-rows: auto auto;
+    }
+    .main-game__img {
+      width: 100%;
+      min-height: 460px;
+      max-height: 680px;
+      @media (min-width: 768px) {
+        grid-area: img;
+      }
+    }
+    .mini-galery {
+      display: flex;
+      align-items: center;
+      height: 90px;
+      margin-top: 8px;
+      overflow: hidden;
+      @media (min-width: 768px) {
+        grid-area: galery;
+      }
+      .mini-galery__img {
+        @include mini-galery__img;
+      }
+      .mini-galery__img--selected {
+        @include mini-galery__img;
+        border-style: solid;
+        border-color: #c427eb;
+      }
+      .mini-galery__img--transparency {
+        @include mini-galery__img;
+        opacity: 50%;
+      }
+    }
+    .main-game__card {
+      display: flex;
+      flex-direction: column;
+      min-width: 230px;
+      @media (min-width: 768px) {
+        grid-area: card;
+      }
+      .main-game__card__text {
+        line-height: 24px;
+        font-size: 14px;
+        margin-top: 1rem;
+      }
+      .main-game__card__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 0;
+        .main-game__card__publisher {
+          display: inline;
+          font-size: 14px;
+          opacity: 50%;
+          &--padding {
+            font-size: 14px;
+            opacity: 50%;
+            padding-top: 2rem;
+          }
+        }
+        .main-game__card__price {
+          display: inline;
+          text-align: end;
+          font-family: sora;
+          font-size: 20px;
+          font-weight: 700;
+        }
+      }
+      .btn-principal {
+        @include btn-principal;
+      }
+    }
+    .main-game__card--home {
+      @extend .main-game__card;
+      display: none;
+      @media (min-width: 768px) {
+        display: flex;
+      }
+    }
+  }
+  .line-main {
+    @include line-main;
+  }
+  .line-main--hidden {
+    @include line-main;
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+  .line-main--carousel-spacing {
+    @include line-main;
+    margin-top: 3.5rem !important;
+  }
+  .buy-game {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #34383f;
+    border-radius: 20px;
+    .buy-game__info {
+      display: flex;
+      justify-content: space-between;
+      width: 78%;
+      margin-left: 20px;
+      .mobile-hidden {
+        display: none;
+        @media (min-width: 600px) {
+          display: block;
+        }
+      }
+    }
+    .btn-principal--buy-game {
+      @include btn-principal;
+      width: 20%;
+      min-width: 204px;
+      margin-left: 2rem;
+    }
+  }
+  #catalogue {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-row-gap: 2rem;
+    justify-content: space-between;
+    width: 100%;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 6%;
+      grid-row-gap: 20px;
+    }
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 6%;
+      grid-row-gap: 20px;
+    }
+    .catalogue-game {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      .catalogue-game__img {
+        width: 110px;
+        height: 110px;
+        border-radius: 14px;
+      }
+      .catalogue-game__card {
+        display: flex;
+        align-items: center;
+        .catalogue-game__card__img {
+          width: 90px;
+          height: 90px;
+        }
+        .catalogue-game__card__info {
+          padding: 0 12px;
+          min-width: 114px;
+          .catalogue-game__card__info__time {
+            font-weight: 300;
+            font-style: italic;
+            font-size: 14px;
+            margin: 4px 0;
+          }
+          .catalogue-game__card__info__hs {
+            font-size: 14px;
+            font-style: italic;
+            font-weight: 500;
+          }
+          .anchor-text--opacity {
+            font-weight: 300;
+            font-style: italic;
+            font-size: 14px;
+            opacity: 50%;
+          }
+        }
+      }
+      .catalogue-game__price {
+        font-family: sora;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+  #catalogue--big {
+    @extend #catalogue;
+    @media (min-width: 600px) {
+      grid-template-columns: auto auto;
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: auto auto auto;
+    }
+    .catalogue-game {
+      justify-content: left;
+      .catalogue-game__card__img--big {
+        width: 110px;
+        height: 110px;
+        @media (min-width: 1024px) {
+          width: 130px;
+          height: 130px;
+        }
+      }
+      .catalogue-game__card__info {
+        padding: 0 12px;
+        min-width: 114px;
+      }
+    }
+  }
+}

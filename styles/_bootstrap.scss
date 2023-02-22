@@ -1,0 +1,62 @@
+/*  A N U L A R  B O O T S T R A P  */
+
+/* boostrap asigna border box por defecto a todo y al comienzo del proyecto no lo tenia seteado de esta manera, al usar bootstrap esta opcion me rompió el diseño asi que la volví a dejar en unset*/
+* ::after,
+::before {
+  box-sizing: unset;
+}
+
+.container-fluid {
+  width: 86%;
+}
+
+ol {
+  padding-left: 0;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0;
+}
+
+.carousel-item {
+  transition: transform 0.1s linear;
+}
+
+.carousel-inner {
+  overflow: visible;
+}
+
+.carousel-caption {
+  text-align: left;
+  position: absolute;
+  bottom: -3.5rem;
+  left: 0rem;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 3px;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-radius: 2rem;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 1rem;
+}
+
+.carousel-item .carousel-caption {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
