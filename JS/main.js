@@ -5,6 +5,7 @@ let btnCart = document.getElementById("btnCart");
 let modalBodyCart = document.getElementById("modal-bodyCart");
 let showCart = document.getElementById("showCart");
 let totalPrice = document.getElementById("totalPrice");
+
 //Juego en carrito
 let gamesInCart;
 if (localStorage.getItem("cart")) {
@@ -46,63 +47,28 @@ class Game {
   }
 }
 
-//Creacion de los juegos disponibles como CONSTANTES
-const game1 = new Game(
-  1,
-  "Age of Empires II",
-  2480,
-  "Estrategia",
-  2019,
-  "AgeOfEmpiresII.jpg"
-);
-const game2 = new Game(
-  2,
-  "Ark Survival Evolved",
-  1420,
-  "Supervivencia",
-  2017,
-  "ArkSurvivalEvolved.jpg"
-);
-const game3 = new Game(
-  3,
-  "Battlefield 2042",
-  4530,
-  "Disparos",
-  2021,
-  "Battlefield2042.jpg"
-);
-const game4 = new Game(
-  4,
-  "Dark Souls Remastered",
-  1600,
-  "Rol",
-  2018,
-  "DarkSoulsRemastered.jpg"
-);
-const game5 = new Game(
-  5,
-  "Dead by Daylight",
-  1040,
-  "Supervivencia",
-  2016,
-  "DeadByDaylight.jpg"
-);
-const game6 = new Game(
-  6,
-  "Elite Dangerous",
-  2400,
-  "Simulacion",
-  2015,
-  "EliteDangerous.jpg"
-);
-
 //Creacion del array de los juegos disponibles en la tienda y almacenamiento en local storage
 let gamesStore = [];
+const loadStore = async () => {
+  const resp = await fetch("games.json");
+  const data = await resp.json();
+  for (let game of data) {
+    let newGame = new Game(
+      game.id,
+      game.title,
+      game.price,
+      game.genre,
+      game.launch,
+      game.img
+    );
+    gamesStore.push(newGame);
+  }
+  localStorage.setItem("gamesStore", JSON.stringify(gamesStore));
+};
 if (localStorage.getItem("gamesStore")) {
   gamesStore = JSON.parse(localStorage.getItem("gamesStore"));
 } else {
-  gamesStore.push(game1, game2, game3, game4, game5, game6);
-  localStorage.setItem("gamesStore", JSON.stringify(gamesStore));
+  loadStore();
 }
 
 //Imprimir el catálogo en la página web
@@ -141,25 +107,40 @@ function addToCart(game) {
     gamesInCart.push(game);
     localStorage.setItem("cart", JSON.stringify(gamesInCart));
     //Notificación para avisar al usuario que el juego se agregó al carrito exitosamente
-    Swal.fire({
-      title: "Juego agregado con éxito",
-      text: `${game.title} ahora se encuentra en tu carrito`,
-      confirmButtonText: "Aceptar",
-      confirmButtonColor: "green",
-      timer: 3000,
-      width: 350,
-      imageUrl: `images/${game.img}`,
-      imageHeight: 150,
-    });
+    Toastify({
+      text: "Juego agregado con éxito",
+      duration: 3000,
+      newWindow: false,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, #c427eb, #a21ac4)",
+      },
+      offset: {
+        x: "1rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: "3.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      },
+    }).showToast();
   } else {
     //Notificación para avisar al usuario que el juego ya se encontraba en el carrito
-    Swal.fire({
-      text: `El juego ${game.title} ya se encuentra en el carrito`,
-      icon: "info",
-      width: 400,
-      timer: 1500,
-      showConfirmButton: false,
-    });
+    Toastify({
+      text: "Este juego ya se encuentra en el carrito",
+      duration: 3000,
+      newWindow: false,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, #dd2c7f, #d71a72)",
+      },
+      offset: {
+        x: "1rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: "3.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      },
+    }).showToast();
   }
 }
 
@@ -214,4 +195,7 @@ showCart.addEventListener("click", () => {
 });
 
 //EJECUCIÓN DEL CÓDIGO
-showCatalogue(gamesStore);
+//Carga de los juegos en la tienda
+setTimeout(() => {
+  showCatalogue(gamesStore);
+}, 1000);

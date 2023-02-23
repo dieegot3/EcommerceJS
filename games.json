@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Age of Empires II",
+    "price": 2480,
+    "genre": "Estrategia",
+    "launch": 2019,
+    "img": "AgeOfEmpiresII.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Ark Survival Evolved",
+    "price": 1420,
+    "genre": "Supervivencia",
+    "launch": 2017,
+    "img": "ArkSurvivalEvolved.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Battlefield 2042",
+    "price": 4530,
+    "genre": "Disparos",
+    "launch": 2021,
+    "img": "Battlefield2042.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Dark Souls Remastered",
+    "price": 1600,
+    "genre": "Rol",
+    "launch": 2018,
+    "img": "DarkSoulsRemastered.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Dead by Daylight",
+    "price": 1040,
+    "genre": "Supervivencia",
+    "launch": 2016,
+    "img": "DeadByDaylight.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Elite Dangerous",
+    "price": 2400,
+    "genre": "Simulacion",
+    "launch": 2015,
+    "img": "EliteDangerous.jpg"
+  }
+]
