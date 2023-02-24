@@ -60,3 +60,11 @@ h6 {
     display: none;
   }
 }
+
+.btn-outline-success {
+  border-radius: 18px;
+  &:hover {
+    background-color: rgba(25, 25, 25, 0.8);
+    backdrop-filter: blur(1px);
+  }
+}

@@ -1,3 +1,12 @@
+// P R U E B A S
+// setTimeout(() => {
+//   let cartIcon = document.getElementsByClassName(`cartIcon`)[0];
+//   console.log(cartIcon);
+//   cartIcon.addEventListener("mouseover", () => {
+//     cartIcon.style.opacity = "100%";
+//   });
+// }, 1100);
+
 /* DECLARACION DE VARIABLES */
 
 let storeSection = document.getElementById("store");
@@ -77,7 +86,7 @@ function showCatalogue(array) {
   for (let game of array) {
     //Setear elementos HTML, cards con los contenidos de los juegos
     let newGroupGameDiv = document.createElement("div");
-    newGroupGameDiv.className = "group__game";
+    newGroupGameDiv.setAttribute("id", `prueba${game.id}`);
     newGroupGameDiv.innerHTML = `
         <div id="${game.id}" class="group__game">
         <img class="group__game__img" src="images/${game.img}" alt="Miniatura del juego "${game.title}">
@@ -89,9 +98,10 @@ function showCatalogue(array) {
             <p>Lanzamiento: ${game.launch}</p>
           </div>
         </div>
-        <button id="addBtn${game.id}" class="btn btn-outline-success" style="margin-left: 4rem;"><iconify-icon icon="material-symbols:shopping-cart" style="color: #c427eb; padding-top: 6px;"></iconify-icon></button>
+        <button id="addBtn${game.id}" class="btn btn-outline-success cartIcon" ><iconify-icon icon="material-symbols:shopping-cart" style="color: #c427eb; margin: auto; width="32" height="32"; border-color: "none";"></iconify-icon></button>
       </div>
-        `;
+      
+      `;
     storeSection.appendChild(newGroupGameDiv);
     let addBtn = document.getElementById(`addBtn${game.id}`);
     addBtn.onclick = () => {
@@ -99,7 +109,6 @@ function showCatalogue(array) {
     };
   }
 }
-
 //Agregar un juego al carrito y setearlo en el storage
 function addToCart(game) {
   let gameAdd = gamesInCart.find((elem) => elem.id == game.id);
@@ -193,6 +202,14 @@ function loadGamesInCart(array) {
 showCart.addEventListener("click", () => {
   loadGamesInCart(gamesInCart);
 });
+
+//Prueba de hover tarjeta
+// showCatalogue.forEach((game) => {
+//   document.getElementById;
+// });
+// addBtn.onmouseover = () => {
+//   addBtn.style.display = "flex";
+// };
 
 //EJECUCIÓN DEL CÓDIGO
 //Carga de los juegos en la tienda
