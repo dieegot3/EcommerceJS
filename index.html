@@ -27,18 +27,19 @@
           <h1 class="anchor-logo">NOCTURNE</h1>
         </a>
         <ul class="izquierda">
-          <li><a>Tienda</a></li>
-          <li><a>Ofertas</a></li>
-          <li><a>Novedades</a></li>
+          <li style="cursor: pointer;"><a>Tienda</a></li>
+          <li style="cursor: pointer;"><a>Ofertas</a></li>
+          <li style="cursor: pointer;"><a>Novedades</a></li>
         </ul>
         <div class="searchbar">
           <input class="input" type="text" name="buscar-juego" id="" placeholder="Buscar juego">
-          <iconify-icon class="icon-search" icon="ic:baseline-search" style="color: #c427eb;"></iconify-icon>
+          <iconify-icon class="icon-search" icon="ic:baseline-search" style="color: #c427eb; cursor:
+            pointer;"></iconify-icon>
         </div>
         <ul class=" derecha">
-          <li><a>Juegos deseados</a></li>
-          <li><a>Mis juegos</a></li>
-          <li><a id="showCart" data-bs-toggle="modal" data-bs-target="#idModalCarrito"
+          <li style="cursor: pointer;" style="cursor: pointer;"><a>Juegos deseados</a></li>
+          <li style="cursor: pointer;"><a>Mis juegos</a></li>
+          <li><a id="showCart" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
               style="cursor: pointer;">Carrito</a></li>
         </ul>
         <div class="user">
@@ -91,35 +92,31 @@
     </div>
   </header>
   <div class="line-nav"></div>
-  <!--Modal Carrito-->
-  <div class="modal fade" id="idModalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-    style="padding-top: 5rem;">
-    <div class="modal-dialog" style="width: 350px;">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title" id="exampleModalLabel" style="color: black;">Carrito de compras</h3>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" id="modal-bodyCart">
-
-        </div>
-        <div class="row ml-ato">
-          <p id="totalPrice" style="color:black; padding-left: 1.8rem; padding-bottom: 1.5rem;"> </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" data-bs-dismiss="modal" class="btn btn-success" id="botonFinalizarCompra">Finalizar
-            Compra</button>
-        </div>
-      </div>
-    </div>
-  </div>
   <main id="container">
     <h2>Catalogo</h2>
     <section id="store">
       <div class="line-main"></div>
     </section>
+    <!--offcanvas boostrap-->
+    <div class="offcanvas offcanvas-start offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop"
+      aria-labelledby="offcanvasWithBackdropLabel">
+      <div class="offcanvas-header">
+        <h2 class="titleCart" style="padding-left: 1.4rem;">Carrito de compras</h2>
+        <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
+          aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="modal-body" id="modal-bodyCart">
 
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.5rem;">
+          <h3 id="totalPrice" style="padding-left: 1.8rem; position: static;">
+          </h3>
+          <button class="btn btn-primary bg-dark" type="submit" style="margin-right: 1rem;">Finalizar compra</button>
+        </div>
+
+      </div>
+    </div>
   </main>
   <footer>
     <div id="footer">

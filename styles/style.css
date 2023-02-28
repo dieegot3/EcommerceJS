@@ -531,12 +531,13 @@
   height: 100%;
   pointer-events: auto;
   min-width: 310px;
-  box-shadow: 0 0 4px 4px #1c1f23;
+  box-shadow: none;
   border-radius: 18px;
-  transition: box-shadow 0.4s ease-in-out, border-radius 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+  margin-left: 0rem;
 }
 #container #store .group__game:hover {
-  box-shadow: none;
+  box-shadow: 0 0 4px 4px #1c1f23;
 }
 @media (min-width: 768px) {
   #container #store .group__game {
@@ -562,20 +563,38 @@
   font-style: italic;
   opacity: 50%;
 }
-#container #store .cartIcon {
+#container #store #click-space {
   display: flex;
   position: absolute;
-  opacity: 0%;
-  height: 100%;
   width: 100%;
-  top: 0;
-  margin: auto;
-  border: 0;
-  pointer-events: auto;
+  height: 100%;
   transition: all 0.3s;
+  opacity: 0%;
 }
-#container #store .cartIcon:hover {
+#container #store #click-space:hover {
   opacity: 100%;
+}
+#container #store #click-space .cartIcon {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-right: 12.3rem;
+}
+#container #store #click-space .bg-img--opacity {
+  z-index: 1;
+  width: 90px;
+  height: 90px;
+  margin-left: rem;
+  border-radius: 10px;
+  background-color: rgba(25, 25, 25, 0.7);
+  -webkit-backdrop-filter: blur(0.5px);
+          backdrop-filter: blur(0.5px);
+}
+@media (min-width: 768px) {
+  #container #store #click-space .bg-img--opacity {
+    margin: 1rem;
+  }
 }
 #container #store #main-game {
   display: grid;
@@ -1074,4 +1093,63 @@ h6 {
   background-color: rgba(25, 25, 25, 0.8);
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
+}
+
+.offcanvas.offcanvas-start {
+  width: 60%;
+  background-color: #34383f;
+  bottom: 0;
+}
+
+.offcanvas-header {
+  margin-top: -2rem;
+}
+
+.titleCart {
+  margin-top: 10rem;
+}
+
+.offcanvas-body {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.gameInCart {
+  display: flex;
+  align-items: center;
+  margin: 0 0 2rem 1.5rem;
+  justify-content: space-between;
+}
+.gameInCart .cartGameImg {
+  width: 95px;
+  height: 95px;
+  box-shadow: none;
+  border-radius: 18px;
+  transition: box-shadow 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+}
+.gameInCart .cartGameImg:hover {
+  box-shadow: 0 0 4px 4px #28262c;
+}
+.gameInCart .gameInCart__info {
+  display: flex;
+  justify-content: space-between;
+  margin: 0rem 1.2rem;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #1c1f22;
+  padding: 0 1.4rem;
+  height: 60px;
+  color: #f0f0f0;
+  font-size: 14px;
+  font-family: Sora;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 20px;
+  border-color: #34383f;
+}
+.btn-primary:hover {
+  border-color: #202328;
 }/*# sourceMappingURL=style.css.map */

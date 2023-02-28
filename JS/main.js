@@ -34,26 +34,6 @@ class Game {
       (this.launch = launch),
       (this.img = img);
   }
-  showId() {
-    console.log(`El id de este juego es ${this.Id}`);
-  }
-  showName() {
-    console.log(`El nombre de este juego es ${this.title}`);
-  }
-  showPrice() {
-    console.log(`El precio del juego ${this.title} es $${this.price}`);
-  }
-  showGenre() {
-    console.log(`El género del juego ${this.title} es ${this.genre}`);
-  }
-  showLaunch() {
-    console.log(`El juego ${this.title} fue lanzado en el año ${this.launch}`);
-  }
-  showAll() {
-    console.log(
-      `${this.title} es un juego de ${this.genre} lanzado en el año ${this.launch} y tiene un precio de $${this.price}`
-    );
-  }
 }
 
 //Creacion del array de los juegos disponibles en la tienda y almacenamiento en local storage
@@ -86,7 +66,7 @@ function showCatalogue(array) {
   for (let game of array) {
     //Setear elementos HTML, cards con los contenidos de los juegos
     let newGroupGameDiv = document.createElement("div");
-    newGroupGameDiv.setAttribute("id", `prueba${game.id}`);
+    newGroupGameDiv.setAttribute("id", `cardGame${game.id}`);
     newGroupGameDiv.innerHTML = `
         <div id="${game.id}" class="group__game">
         <img class="group__game__img" src="images/${game.img}" alt="Miniatura del juego "${game.title}">
@@ -98,9 +78,11 @@ function showCatalogue(array) {
             <p>Lanzamiento: ${game.launch}</p>
           </div>
         </div>
-        <button id="addBtn${game.id}" class="btn btn-outline-success cartIcon" ><iconify-icon icon="material-symbols:shopping-cart" style="color: #c427eb; margin: auto; width="32" height="32"; border-color: "none";"></iconify-icon></button>
-      </div>
-      
+        <div id="click-space">
+        <button id="addBtn${game.id}" class="btn cartIcon" ><iconify-icon icon="material-symbols:shopping-cart" style="color: #c427eb; margin: auto; width="32" height="32"; border-color: "none";"></iconify-icon></button>
+        <div class="bg-img--opacity"></div>
+        </div>
+      </div>      
       `;
     storeSection.appendChild(newGroupGameDiv);
     let addBtn = document.getElementById(`addBtn${game.id}`);
@@ -167,18 +149,17 @@ function loadGamesInCart(array) {
   modalBodyCart.innerHTML = "";
   array.forEach((gameCart) => {
     //Creacion de la card con la información del juego existente en el carrito
-    modalBodyCart.innerHTML += `
-        <div class="card border-primary mb-3" id ="gameCart${gameCart.id}" >
-            <img class="card-img-top" src="images/${gameCart.img}" alt="${gameCart.title}">
-            <div class="card-body" style="display: flex; justify-content: space-between;">
-                    <div>
-            <h4 class="card-title" style="color: black">${gameCart.title}</h4>
-                
-                    <p class="card-text" style="color: black">$${gameCart.price}</p> 
-                    </div>    
-                    <button class= "btn" id="deleteBtn${gameCart.id}"><iconify-icon icon="fluent:delete-32-filled" style="color: #c427eb;" width="25" height="25"></iconify-icon></button>
-            </div>    
-        </div>
+    modalBodyCart.innerHTML += `        
+      <div class="gameInCart" id="gameCart${gameCart.id}">
+        <img class="cartGameImg" src="images/${gameCart.img}" alt="${gameCart.title}">
+        <div class="gameInCart__info">
+          <div>
+            <h4 class="card-title">${gameCart.title}</h4>
+            <p class="card-text" style="padding-top: 10px;">$${gameCart.price}</p>
+          </div>
+          <button class= "btn" id="deleteBtn${gameCart.id}"><iconify-icon icon="fluent:delete-32-filled" style="color: #c427eb;" width="25" height="25"></iconify-icon></button>
+            </div>        
+     </div>
         `;
   });
   //Eliminación de los juegos agregados al carrito en el DOM y en el storage

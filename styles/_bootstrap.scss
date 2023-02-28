@@ -68,3 +68,62 @@ h6 {
     backdrop-filter: blur(1px);
   }
 }
+
+.offcanvas.offcanvas-start {
+  width: 60%;
+  background-color: #34383f;
+  bottom: 0;
+}
+
+.offcanvas-header {
+  margin-top: -2rem;
+}
+
+.titleCart {
+  margin-top: 10rem;
+}
+
+.offcanvas-body {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.gameInCart {
+  display: flex;
+  align-items: center;
+  margin: 0 0 2rem 1.5rem;
+  justify-content: space-between;
+  .cartGameImg {
+    width: 95px;
+    height: 95px;
+    box-shadow: none;
+    border-radius: 18px;
+    transition: box-shadow 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+    &:hover {
+      box-shadow: 0 0 4px 4px #28262c;
+    }
+  }
+  .gameInCart__info {
+    display: flex;
+    justify-content: space-between;
+    margin: 0rem 1.2rem;
+    width: 100%;
+  }
+}
+
+.btn-primary {
+  background-color: #1c1f22;
+  padding: 0 1.4rem;
+  height: 60px;
+  color: #f0f0f0;
+  font-size: 14px;
+  font-family: Sora;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 20px;
+  border-color: #34383f;
+  &:hover {
+    border-color: #202328;
+  }
+}
