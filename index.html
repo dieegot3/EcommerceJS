@@ -98,21 +98,19 @@
       <div class="line-main"></div>
     </section>
     <!--offcanvas boostrap-->
-    <div class="offcanvas offcanvas-start offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop"
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop"
       aria-labelledby="offcanvasWithBackdropLabel">
-      <div class="offcanvas-header">
-        <h2 class="titleCart" style="padding-left: 1.4rem;">Carrito de compras</h2>
-        <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
-          aria-label="Close"></button>
+      <div id="offcanvas-header">
       </div>
-      <div class="offcanvas-body">
+      <div class="offcanvas-body" style="padding: 0 0 2rem 3rem;">
         <div class="modal-body" id="modal-bodyCart">
 
         </div>
-        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.5rem;">
-          <h3 id="totalPrice" style="padding-left: 1.8rem; position: static;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3 id="totalPrice" style="position: static;">
           </h3>
-          <button class="btn btn-primary bg-dark" type="submit" style="margin-right: 1rem;">Finalizar compra</button>
+          <button id="btnBuy" class="btn btn-primary bg-dark" type="submit" style="margin-right: 1rem;">Finalizar
+            compra</button>
         </div>
 
       </div>
@@ -163,10 +161,10 @@
   <script src="JS/main.js"></script>
   <!-- Iconify -->
   <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js"></script>
+  <!--Script de Sweet alert-->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!--Script de Toastify-->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
-<!--Script de Sweet alert-->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!--Script de Toastify-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </html>

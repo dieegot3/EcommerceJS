@@ -14,6 +14,8 @@ let btnCart = document.getElementById("btnCart");
 let modalBodyCart = document.getElementById("modal-bodyCart");
 let showCart = document.getElementById("showCart");
 let totalPrice = document.getElementById("totalPrice");
+let btnBuy = document.getElementById("btnBuy");
+let offcanvasHeader = document.getElementById("offcanvas-header");
 
 //Juego en carrito
 let gamesInCart;
@@ -146,6 +148,10 @@ function total(array) {
 
 //Seteo de la interfaz del carrito para mostrar los juegos sumados y el total de la compra, permitiendo al usuario eliminar los juegos que ya no quiera
 function loadGamesInCart(array) {
+  offcanvasHeader.innerHTML = `
+<h2 style="padding-left: 2.8rem;">Carrito de Compras</h2>
+<button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+`;
   modalBodyCart.innerHTML = "";
   array.forEach((gameCart) => {
     //Creacion de la card con la información del juego existente en el carrito
@@ -178,6 +184,57 @@ function loadGamesInCart(array) {
   });
   total(array); //Mostrar el total
 }
+
+function completePurchase(array) {
+  offcanvasHeader.innerHTML = `
+<h2 style="padding-left: 2.8rem;">Finalizar compra</h2>
+<button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+`;
+  modalBodyCart.innerHTML = "";
+  modalBodyCart.innerHTML = `
+  <form class="form__options" action="">
+          <h4>Complete los siguientes campos de información</h4>
+          <input class="form__options__input" type="text" name="name" id="" placeholder="Nombre" required>
+          <input class="form__options__input" type="text" name="surname" id="" placeholder="Apellido" required>
+          <input class="form__options__input" type="text" name="location" id="" placeholder="Localidad" required>
+          <input class="form__options__input" type="email" name="mail" id="" placeholder="tu-correo@gmail.com" required>
+          <div style="display: flex; gap: 1rem;">
+          <select id="selectCountry" class="form__options__input select" required>
+            <option value="country">País</option>
+            <option value="argentina">Argentina</option>
+            <option value="brasil">Brasil</option>
+            <option value="chile">Chile</option>
+            <option value="uruguay">Uruguay</option>
+            <option value="paraguay">Paraguay</option>
+            <option value="bolivia">Bolivia</option>
+            <option value="colombia">Colombia</option>
+            <option value="mexico">Mexico</option>
+            <option value="cuba">Cuba</option>
+            <option value="peru">Perú</option>
+            <option value="venezuela">Venezuela</option>
+            <option value="ecuador">Ecuador</option>
+            <option value="guatemala">Guatemala</option>
+            <option value="puertoRico">Puerto Rico</option>
+            <option value="panama">Panamá</option>
+            <option value="honduras">Honduras</option>
+            <option value="jamaica">Jamaica</option>
+          </select>
+          <select id="selectCard" class="form__options__input select" required>
+            <option value="card">Tarjeta</option>
+            <option value="visa">Visa</option>
+            <option value="mastercard">Mastercard</option>
+          </select>
+          </div>
+          <input class="form__options__input" inputmode="numeric" maxlength="16" name="cardNumber" id="" placeholder="xxxx xxxx xxxx xxxx" required>
+          <input class="form__options__input" type="password" maxlength="3" autocomplete="off" name="cardSecurity" id="" placeholder="xxx" required>
+          <a class="btn-principal" href="pages/inicio.html">Comprar</a>
+        </form>
+  `;
+}
+
+btnBuy.addEventListener("click", () => {
+  completePurchase();
+});
 
 //Funcionabilidad del boton para mostrar el carrito
 showCart.addEventListener("click", () => {

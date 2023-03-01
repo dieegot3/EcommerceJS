@@ -75,12 +75,10 @@ h6 {
   bottom: 0;
 }
 
-.offcanvas-header {
-  margin-top: -2rem;
-}
-
-.titleCart {
+#offcanvas-header {
+  position: relative;
   margin-top: 10rem;
+  display: flex;
 }
 
 .offcanvas-body {
@@ -126,4 +124,29 @@ h6 {
   &:hover {
     border-color: #202328;
   }
+}
+
+.form__options__input {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  background-color: #373a3f;
+  border-radius: 12px;
+  border-style: none;
+  text-align: center;
+}
+
+.form__options__input.select {
+  color: #909194;
+}
+
+.btn-close {
+  right: 2.5rem;
+  bottom: 2.2rem;
+  position: absolute;
+}
+
+.form__options {
+  width: 80%;
 }

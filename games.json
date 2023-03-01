@@ -26,7 +26,7 @@
   {
     "id": 4,
     "title": "Dark Souls Remastered",
-    "price": 1600,
+    "price": 1620,
     "genre": "Rol",
     "launch": 2018,
     "img": "DarkSoulsRemastered.jpg"
@@ -46,5 +46,149 @@
     "genre": "Simulacion",
     "launch": 2015,
     "img": "EliteDangerous.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Battlefield V",
+    "price": 2670,
+    "genre": "Disparos",
+    "launch": 2018,
+    "img": "BattlefieldV.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Cyberpunk 2077",
+    "price": 3260,
+    "genre": "Rol",
+    "launch": 2020,
+    "img": "Cyberpunk2077.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Hogwarts Legacy",
+    "price": 4100,
+    "genre": "Rol",
+    "launch": 2023,
+    "img": "HogwartsLegacy.jpg"
+  },
+  {
+    "id": 10,
+    "title": "No Man's Sky",
+    "price": 1220,
+    "genre": "Supervivencia",
+    "launch": 2016,
+    "img": "NoMansSky.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Skyrim",
+    "price": 1350,
+    "genre": "Rol",
+    "launch": 2011,
+    "img": "Skyrim.jpg"
+  },
+  {
+    "id": 12,
+    "title": "SpiderMan Remastered",
+    "price": 3610,
+    "genre": "Acción",
+    "launch": 2022,
+    "img": "SpiderManRemastered.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Stray",
+    "price": 2890,
+    "genre": "Aventura",
+    "launch": 2022,
+    "img": "Stray.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Assassin's Creed Valhalla",
+    "price": 5400,
+    "genre": "Rol",
+    "launch": 2021,
+    "img": "AssassinsCreedValhalla.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Assetto Corsa",
+    "price": 870,
+    "genre": "Simulacion",
+    "launch": 2012,
+    "img": "AssettoCorsa.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Atomic Heart",
+    "price": 4410,
+    "genre": "Aventura",
+    "launch": 2023,
+    "img": "AtomicHeart.jpg"
+  },
+  {
+    "id": 17,
+    "title": "Dying Light 2",
+    "price": 2830,
+    "genre": "Aventura",
+    "launch": 2022,
+    "img": "DyingLight2.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Elden Ring",
+    "price": 5700,
+    "genre": "Rol",
+    "launch": 2022,
+    "img": "EldenRing.jpg"
+  },
+  {
+    "id": 19,
+    "title": "GTA V",
+    "price": 1580,
+    "genre": "Acción",
+    "launch": 2015,
+    "img": "GTAV.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Horizon Zero Dawn",
+    "price": 1340,
+    "genre": "Aventura",
+    "launch": 2020,
+    "img": "HorizonZeroDawn.jpg"
+  },
+  {
+    "id": 21,
+    "title": "Injustice 2",
+    "price": 1160,
+    "genre": "Pelea",
+    "launch": 2017,
+    "img": "Injustice2.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Metro Exodus",
+    "price": 1970,
+    "genre": "Acción",
+    "launch": 2019,
+    "img": "MetroExodus.jpg"
+  },
+  {
+    "id": 23,
+    "title": "Rust",
+    "price": 2400,
+    "genre": "Rol",
+    "launch": 2018,
+    "img": "Rust.jpg"
+  },
+  {
+    "id": 24,
+    "title": "The Witcher 3",
+    "price": 3350,
+    "genre": "Rol",
+    "launch": 2015,
+    "img": "TheWitcher3.jpg"
   }
 ]

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <!-- Bootstrap CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="styles/style.css">
+  <!-- Toastify -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+  <li><a id="showCart" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+      style="cursor: pointer;">Carrito</a></li>
+  <!--offcanvas boostrap-->
+  <div class="offcanvas-start offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop"
+    aria-labelledby="offcanvasWithBackdropLabel" style="width: 60%;">
+    <div id="offcanvasHeader" class="offcanvas-header">
+      <h2 class="titleCart" style="padding-left: 1.4rem;">Carrito de compras</h2>
+    </div>
+    <div class="offcanvas-body">
+      < class="modal-body" id="modal-bodyCart">
+        <!--form armar-->
+        <form class="login__data" action="">
+          <h4>Complete los siguientes campos de información</h4>
+          <input class="login__data__input" type="text" name="name" id="" placeholder="Nombre">
+          <input class="login__data__input" type="text" name="surname" id="" placeholder="Apellido">
+          <input class="login__data__input" type="text" name="location" id="" placeholder="Localidad">
+          <input class="login__data__input" type="email" name="mail" id="" placeholder="tu-correo@gmail.com">
+          <select id="selectCountry">
+            <option value="country">País</option>
+            <option value="argentina">Argentina</option>
+            <option value="brasil">Brasil</option>
+            <option value="chile">Chile</option>
+            <option value="uruguay">Uruguay</option>
+            <option value="paraguay">Paraguay</option>
+            <option value="bolivia">Bolivia</option>
+            <option value="colombia">Colombia</option>
+            <option value="mexico">Mexico</option>
+            <option value="cuba">Cuba</option>
+            <option value="peru">Perú</option>
+            <option value="venezuela">Venezuela</option>
+            <option value="ecuador">Ecuador</option>
+            <option value="guatemala">Guatemala</option>
+            <option value="puertoRico">Puerto Rico</option>
+            <option value="panama">Panamá</option>
+            <option value="honduras">Honduras</option>
+            <option value="jamaica">Jamaica</option>
+          </select>
+          <select id="selectCard">
+            <option value="card">Tarjeta</option>
+            <option value="visa">Visa</option>
+            <option value="mastercard">Mastercard</option>
+          </select>
+          <input class="login__data__input" type="number" name="cardNumber" id="" placeholder="xxxx xxxx xxxx xxxx">
+          <input class="login__data__input" type="password" name="cardSecurity" id="" placeholder="xxx">
+          <a class="btn-principal" href="pages/inicio.html">Comprar</a>
+        </form>
+    </div>
+
+
+  </div>
+  </div>
+  <!--Script de Sweet alert-->
+  <script src=" //cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!--Script de Toastify-->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>
