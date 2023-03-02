@@ -13,9 +13,8 @@ let storeSection = document.getElementById("store");
 let btnCart = document.getElementById("btnCart");
 let modalBodyCart = document.getElementById("modal-bodyCart");
 let showCart = document.getElementById("showCart");
-let totalPrice = document.getElementById("totalPrice");
-let btnBuy = document.getElementById("btnBuy");
 let offcanvasHeader = document.getElementById("offcanvas-header");
+let offcanvasFooter = document.getElementById("offcanvas-footer");
 
 //Juego en carrito
 let gamesInCart;
@@ -147,7 +146,7 @@ function total(array) {
 }
 
 //Seteo de la interfaz del carrito para mostrar los juegos sumados y el total de la compra, permitiendo al usuario eliminar los juegos que ya no quiera
-function loadGamesInCart(array) {
+function loadCart(array) {
   offcanvasHeader.innerHTML = `
 <h2 style="padding-left: 2.8rem;">Carrito de Compras</h2>
 <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -167,6 +166,16 @@ function loadGamesInCart(array) {
             </div>        
      </div>
         `;
+    offcanvasFooter.innerHTML = `
+        <h3 id="totalPrice" style="position: static;"></h3>
+          <button id="btnBuy" class="btn btn-primary bg-dark" type="submit" style="margin-right: 1rem;">Finalizar compra</button>`;
+  });
+  let totalPrice = document.getElementById("totalPrice");
+  let btnBuy = document.getElementById("btnBuy");
+  if (btnBuy) {
+  }
+  btnBuy.addEventListener("click", () => {
+    completePurchase();
   });
   //Eliminación de los juegos agregados al carrito en el DOM y en el storage
   array.forEach((gameCart) => {
@@ -185,7 +194,7 @@ function loadGamesInCart(array) {
   total(array); //Mostrar el total
 }
 
-function completePurchase(array) {
+function completePurchase() {
   offcanvasHeader.innerHTML = `
 <h2 style="padding-left: 2.8rem;">Finalizar compra</h2>
 <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -198,7 +207,9 @@ function completePurchase(array) {
           <input class="form__options__input" type="text" name="surname" id="" placeholder="Apellido" required>
           <input class="form__options__input" type="text" name="location" id="" placeholder="Localidad" required>
           <input class="form__options__input" type="email" name="mail" id="" placeholder="tu-correo@gmail.com" required>
-          <div style="display: flex; gap: 1rem;">
+          <br><br>
+          <h4>Datos de la tarjeta</h4>
+          <div style="display: flex; gap: 1rem;">          
           <select id="selectCountry" class="form__options__input select" required>
             <option value="country">País</option>
             <option value="argentina">Argentina</option>
@@ -227,18 +238,18 @@ function completePurchase(array) {
           </div>
           <input class="form__options__input" inputmode="numeric" maxlength="16" name="cardNumber" id="" placeholder="xxxx xxxx xxxx xxxx" required>
           <input class="form__options__input" type="password" maxlength="3" autocomplete="off" name="cardSecurity" id="" placeholder="xxx" required>
-          <a class="btn-principal" href="pages/inicio.html">Comprar</a>
         </form>
+        <br><br>
+  `;
+  offcanvasFooter.innerHTML = "";
+  offcanvasFooter.innerHTML = `
+  <h3 id="totalPrice" style="position: static;"></h3>
   `;
 }
 
-btnBuy.addEventListener("click", () => {
-  completePurchase();
-});
-
 //Funcionabilidad del boton para mostrar el carrito
 showCart.addEventListener("click", () => {
-  loadGamesInCart(gamesInCart);
+  loadCart(gamesInCart);
 });
 
 //Prueba de hover tarjeta
