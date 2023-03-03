@@ -147,10 +147,10 @@ function total(array) {
 
 //Seteo de la interfaz del carrito para mostrar los juegos sumados y el total de la compra, permitiendo al usuario eliminar los juegos que ya no quiera
 function loadCart(array) {
+  btnCompleteBuy.classList.add("d-md-none");
   offcanvasHeader.innerHTML = `
 <h2 style="padding-left: 2.8rem;">Carrito de Compras</h2>
-<button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-`;
+<button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>`;
   modalBodyCart.innerHTML = "";
   array.forEach((gameCart) => {
     //Creacion de la card con la información del juego existente en el carrito
@@ -166,17 +166,8 @@ function loadCart(array) {
             </div>        
      </div>
         `;
-    offcanvasFooter.innerHTML = `
-        <h3 id="totalPrice" style="position: static;"></h3>
-          <button id="btnBuy" class="btn btn-primary bg-dark" type="submit" style="margin-right: 1rem;">Finalizar compra</button>`;
   });
   let totalPrice = document.getElementById("totalPrice");
-  let btnBuy = document.getElementById("btnBuy");
-  if (btnBuy) {
-  }
-  btnBuy.addEventListener("click", () => {
-    completePurchase();
-  });
   //Eliminación de los juegos agregados al carrito en el DOM y en el storage
   array.forEach((gameCart) => {
     document
@@ -189,9 +180,18 @@ function loadCart(array) {
         array.splice(position, 1);
         localStorage.setItem("cart", JSON.stringify(array));
         total(array); //Volver a calcular el total
+        if (array.length == 0) {
+          btnBuy.classList.add("d-md-none");
+        }
       });
   });
+  if (array.length != 0) {
+    btnBuy.classList.remove("d-md-none");
+  }
   total(array); //Mostrar el total
+  btnBuy.addEventListener("click", () => {
+    completePurchase();
+  });
 }
 
 function completePurchase() {
@@ -241,10 +241,26 @@ function completePurchase() {
         </form>
         <br><br>
   `;
-  offcanvasFooter.innerHTML = "";
-  offcanvasFooter.innerHTML = `
-  <h3 id="totalPrice" style="position: static;"></h3>
-  `;
+  btnCompleteBuy.classList.remove("d-md-none");
+  btnBuy.classList.add("d-md-none");
+  btnCompleteBuy.addEventListener("click", () => {
+    Toastify({
+      text: "Compra realizada",
+      duration: 3000,
+      newWindow: false,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, #dd2c7f, #d71a72)",
+      },
+      offset: {
+        x: "1rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: "3.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      },
+    }).showToast();
+  });
 }
 
 //Funcionabilidad del boton para mostrar el carrito
