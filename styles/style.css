@@ -1031,6 +1031,10 @@ img {
   box-sizing: unset;
 }
 
+html {
+  scrollbar-width: thin;
+}
+
 .container-fluid {
   width: 86%;
 }
@@ -1168,11 +1172,26 @@ h6 {
 }
 
 .btn-close {
-  right: 2.5rem;
+  right: 3.5rem;
   bottom: 2.2rem;
   position: absolute;
 }
 
 .form__options {
-  width: 80%;
+  width: 96%;
+}
+
+#offcanvas-footer {
+  display: flex;
+  justify-content: space-between;
+  bottom: 2rem;
+  width: 90%;
+  position: absolute;
+}
+
+.offcanvas-body {
+  margin-bottom: 7rem;
+  padding-left: 3rem;
+  border-bottom-style: outset;
+  border-bottom-width: thin;
 }/*# sourceMappingURL=style.css.map */

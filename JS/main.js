@@ -1,12 +1,3 @@
-// P R U E B A S
-// setTimeout(() => {
-//   let cartIcon = document.getElementsByClassName(`cartIcon`)[0];
-//   console.log(cartIcon);
-//   cartIcon.addEventListener("mouseover", () => {
-//     cartIcon.style.opacity = "100%";
-//   });
-// }, 1100);
-
 /* DECLARACION DE VARIABLES */
 
 let storeSection = document.getElementById("store");
@@ -15,6 +6,7 @@ let modalBodyCart = document.getElementById("modal-bodyCart");
 let showCart = document.getElementById("showCart");
 let offcanvasHeader = document.getElementById("offcanvas-header");
 let offcanvasFooter = document.getElementById("offcanvas-footer");
+let btnCompleteBuy = document.getElementById("btnCompleteBuy");
 
 //Juego en carrito
 let gamesInCart;
@@ -207,7 +199,7 @@ function completePurchase() {
           <input class="form__options__input" type="text" name="surname" id="" placeholder="Apellido" required>
           <input class="form__options__input" type="text" name="location" id="" placeholder="Localidad" required>
           <input class="form__options__input" type="email" name="mail" id="" placeholder="tu-correo@gmail.com" required>
-          <br><br>
+          <br>
           <h4>Datos de la tarjeta</h4>
           <div style="display: flex; gap: 1rem;">          
           <select id="selectCountry" class="form__options__input select" required>
@@ -243,24 +235,6 @@ function completePurchase() {
   `;
   btnCompleteBuy.classList.remove("d-md-none");
   btnBuy.classList.add("d-md-none");
-  btnCompleteBuy.addEventListener("click", () => {
-    Toastify({
-      text: "Compra realizada",
-      duration: 3000,
-      newWindow: false,
-      close: true,
-      gravity: "top", // `top` or `bottom`
-      position: "right", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
-      style: {
-        background: "linear-gradient(to right, #dd2c7f, #d71a72)",
-      },
-      offset: {
-        x: "1rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: "3.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
-      },
-    }).showToast();
-  });
 }
 
 //Funcionabilidad del boton para mostrar el carrito
@@ -268,13 +242,25 @@ showCart.addEventListener("click", () => {
   loadCart(gamesInCart);
 });
 
-//Prueba de hover tarjeta
-// showCatalogue.forEach((game) => {
-//   document.getElementById;
-// });
-// addBtn.onmouseover = () => {
-//   addBtn.style.display = "flex";
-// };
+btnCompleteBuy.addEventListener("click", () => {
+  Toastify({
+    text: "Compra realizada",
+    duration: 3000,
+    newWindow: false,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background:
+        "linear-gradient(to right, rgb(104, 179, 38), rgb(92, 181, 24))",
+    },
+    offset: {
+      x: "1rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+      y: "3.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+    },
+  }).showToast();
+});
 
 //EJECUCIÓN DEL CÓDIGO
 //Carga de los juegos en la tienda
