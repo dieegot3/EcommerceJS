@@ -1,6 +1,7 @@
 # ProyectoFinalDiaz
 Simulador de E-Commerce de venta de videojuegos online.
 En este proyecto se trabajó la sección del Catálogo de videojuegos de la tienda, permitiendo ver el stock de juegos y pudiendo agregar juegos a un carrito de compras para su adquisición.
+
 Funcionalidades del proyecto:
 - Consumo de datos desde un archivo.json de manera asincrónica
 - Ver el catálogo de juegos
