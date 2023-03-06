@@ -19,6 +19,7 @@
 </head>
 
 <body>
+  <div id="background"></div>
   <header>
     <div class="top-position-nav">
       <nav id="menu-desktop">
@@ -31,7 +32,10 @@
           <li style="cursor: pointer;"><a>Ofertas</a></li>
           <li style="cursor: pointer;"><a>Novedades</a></li>
         </ul>
-
+        <div class="searchbar">
+          <input class="input" type="text" name="buscar-juego" id="" placeholder="Buscar juego">
+          <img class="icon-search" src="https://img.icons8.com/ios-glyphs/30/85888d/search--v2.png" />
+        </div>
         <ul class=" derecha">
           <li style="cursor: pointer;" style="cursor: pointer;"><a>Juegos deseados</a></li>
           <li style="cursor: pointer;"><a>Mis juegos</a></li>
@@ -90,8 +94,8 @@
   <div class="line-nav"></div>
   <main id="container">
     <h2>Catalogo</h2>
+    <div id="loader"></div>
     <section id="store">
-      <div class="line-main"></div>
     </section>
     <!--offcanvas boostrap-->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop"

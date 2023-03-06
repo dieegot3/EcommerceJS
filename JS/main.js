@@ -262,8 +262,16 @@ btnCompleteBuy.addEventListener("click", () => {
   }).showToast();
 });
 
+//Loader y background timeout
+setTimeout(() => {
+  let loader = document.getElementById("loader");
+  let bg = document.getElementById("background");
+  loader.classList.add("d-md-none");
+  bg.classList.add("d-md-none");
+}, 2000);
+
 //EJECUCIÓN DEL CÓDIGO
 //Carga de los juegos en la tienda
 setTimeout(() => {
   showCatalogue(gamesStore);
-}, 1000);
+}, 2000);
