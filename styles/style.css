@@ -524,7 +524,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
-  animation: inicio 2s linear;
+  animation: inicio 1.5s linear;
   animation-delay: 2s;
 }
 @keyframes inicio {
