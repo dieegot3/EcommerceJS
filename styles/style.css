@@ -1263,4 +1263,12 @@ h6 {
   color: #c427eb;
   margin: auto;
   border-color: none;
+}
+
+.card-text {
+  padding-top: 10px;
+}
+
+.padding-left-title {
+  padding-left: 2.8rem;
 }/*# sourceMappingURL=style.css.map */

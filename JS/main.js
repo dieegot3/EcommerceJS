@@ -1,58 +1,3 @@
-/* DECLARACION DE VARIABLES */
-
-let storeSection = document.getElementById("store");
-let btnCart = document.getElementById("btnCart");
-let modalBodyCart = document.getElementById("modal-bodyCart");
-let showCart = document.getElementById("showCart");
-let offcanvasHeader = document.getElementById("offcanvas-header");
-let offcanvasFooter = document.getElementById("offcanvas-footer");
-let btnCompleteBuy = document.getElementById("btnCompleteBuy");
-
-//Juego en carrito
-let gamesInCart;
-if (localStorage.getItem("cart")) {
-  gamesInCart = JSON.parse(localStorage.getItem("cart"));
-} else {
-  gamesInCart = [];
-  localStorage.setItem("cart", gamesInCart);
-}
-
-//Class constructora de juegos
-class Game {
-  constructor(id, title, price, genre, launch, img) {
-    (this.id = id),
-      (this.title = title),
-      (this.price = price),
-      (this.genre = genre),
-      (this.launch = launch),
-      (this.img = img);
-  }
-}
-
-//Creacion del array de los juegos disponibles en la tienda y almacenamiento en local storage
-let gamesStore = [];
-const loadStore = async () => {
-  const resp = await fetch("games.json");
-  const data = await resp.json();
-  for (let game of data) {
-    let newGame = new Game(
-      game.id,
-      game.title,
-      game.price,
-      game.genre,
-      game.launch,
-      game.img
-    );
-    gamesStore.push(newGame);
-  }
-  localStorage.setItem("gamesStore", JSON.stringify(gamesStore));
-};
-if (localStorage.getItem("gamesStore")) {
-  gamesStore = JSON.parse(localStorage.getItem("gamesStore"));
-} else {
-  loadStore();
-}
-
 //Imprimir el catálogo en la página web
 function showCatalogue(array) {
   storeSection.innerHTML = "";
@@ -84,6 +29,7 @@ function showCatalogue(array) {
     };
   }
 }
+
 //Agregar un juego al carrito y setearlo en el storage
 function addToCart(game) {
   let gameAdd = gamesInCart.find((elem) => elem.id == game.id);
@@ -128,6 +74,15 @@ function addToCart(game) {
   }
 }
 
+//Evaluar si existen juegos en el carrito leyendo el localStorage y si no existen, setearlo.
+let gamesInCart;
+if (localStorage.getItem("cart")) {
+  gamesInCart = JSON.parse(localStorage.getItem("cart"));
+} else {
+  gamesInCart = [];
+  localStorage.setItem("cart", gamesInCart);
+}
+
 //Calcular el total de los juegos sumados al carrito
 function total(array) {
   let total = array.reduce((acc, gameCart) => acc + gameCart.price, 0);
@@ -141,25 +96,24 @@ function total(array) {
 function loadCart(array) {
   btnCompleteBuy.classList.add("d-md-none");
   offcanvasHeader.innerHTML = `
-<h2 style="padding-left: 2.8rem;">Carrito de Compras</h2>
+<h2 class="padding-left-title">Carrito de Compras</h2>
 <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>`;
   modalBodyCart.innerHTML = "";
+  //Creacion de la card con la información del juego existente en el carrito
   array.forEach((gameCart) => {
-    //Creacion de la card con la información del juego existente en el carrito
     modalBodyCart.innerHTML += `        
       <div class="gameInCart" id="gameCart${gameCart.id}">
         <img class="cartGameImg" src="images/${gameCart.img}" alt="${gameCart.title}">
         <div class="gameInCart__info">
           <div>
             <h4 class="card-title">${gameCart.title}</h4>
-            <p class="card-text" style="padding-top: 10px;">$${gameCart.price}</p>
+            <p class="card-text">$${gameCart.price}</p>
           </div>
           <button class= "btn" id="deleteBtn${gameCart.id}"><iconify-icon icon="fluent:delete-32-filled" style="color: #c427eb;" width="25" height="25"></iconify-icon></button>
             </div>        
      </div>
         `;
   });
-  let totalPrice = document.getElementById("totalPrice");
   //Eliminación de los juegos agregados al carrito en el DOM y en el storage
   array.forEach((gameCart) => {
     document
@@ -171,24 +125,26 @@ function loadCart(array) {
         let position = array.indexOf(deleteGame);
         array.splice(position, 1);
         localStorage.setItem("cart", JSON.stringify(array));
-        total(array); //Volver a calcular el total
+        total(array);
         if (array.length == 0) {
           btnBuy.classList.add("d-md-none");
         }
       });
   });
+  //Ocultar btn "Finalizar compra" si no hay ningún producto en el carrito
   if (array.length != 0) {
     btnBuy.classList.remove("d-md-none");
   }
-  total(array); //Mostrar el total
+  total(array);
   btnBuy.addEventListener("click", () => {
     completePurchase();
   });
 }
 
+//Mostrar el formulario para completar la compra de los productos en el carrito
 function completePurchase() {
   offcanvasHeader.innerHTML = `
-<h2 style="padding-left: 2.8rem;">Finalizar compra</h2>
+<h2 class="padding-left-title">Finalizar compra</h2>
 <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 `;
   modalBodyCart.innerHTML = "";
@@ -236,39 +192,6 @@ function completePurchase() {
   btnCompleteBuy.classList.remove("d-md-none");
   btnBuy.classList.add("d-md-none");
 }
-
-//Funcionabilidad del boton para mostrar el carrito
-showCart.addEventListener("click", () => {
-  loadCart(gamesInCart);
-});
-
-btnCompleteBuy.addEventListener("click", () => {
-  Toastify({
-    text: "Compra realizada",
-    duration: 3000,
-    newWindow: false,
-    close: true,
-    gravity: "top",
-    position: "right",
-    stopOnFocus: true,
-    style: {
-      background:
-        "linear-gradient(to right, rgb(104, 179, 38), rgb(92, 181, 24))",
-    },
-    offset: {
-      x: "1rem",
-      y: "3.5rem",
-    },
-  }).showToast();
-});
-
-//Loader y background timeout
-setTimeout(() => {
-  let loader = document.getElementById("loader");
-  let bg = document.getElementById("background");
-  loader.classList.add("d-md-none");
-  bg.classList.add("d-md-none");
-}, 2000);
 
 //EJECUCIÓN DEL CÓDIGO
 //Carga de los juegos en la tienda
