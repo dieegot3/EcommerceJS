@@ -72,7 +72,7 @@ function showCatalogue(array) {
           </div>
         </div>
         <div id="click-space">
-        <button id="addBtn${game.id}" class="btn cartIcon" ><iconify-icon icon="material-symbols:shopping-cart" style="color: #c427eb; margin: auto; width="32" height="32"; border-color: "none";"></iconify-icon></button>
+        <button id="addBtn${game.id}" class="btn cartIcon" ><iconify-icon class="shopCartIcon" icon="material-symbols:shopping-cart" width="32" height="32"></iconify-icon></button>
         <div class="bg-img--opacity"></div>
         </div>
       </div>      
@@ -96,15 +96,15 @@ function addToCart(game) {
       duration: 3000,
       newWindow: false,
       close: true,
-      gravity: "top", // `top` or `bottom`
-      position: "right", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
+      gravity: "top",
+      position: "right",
+      stopOnFocus: true,
       style: {
         background: "linear-gradient(to right, #c427eb, #a21ac4)",
       },
       offset: {
-        x: "1rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: "3.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        x: "1rem",
+        y: "3.5rem",
       },
     }).showToast();
   } else {
@@ -114,15 +114,15 @@ function addToCart(game) {
       duration: 3000,
       newWindow: false,
       close: true,
-      gravity: "top", // `top` or `bottom`
-      position: "right", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
+      gravity: "top",
+      position: "right",
+      stopOnFocus: true,
       style: {
         background: "linear-gradient(to right, #dd2c7f, #d71a72)",
       },
       offset: {
-        x: "1rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: "3.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        x: "1rem",
+        y: "3.5rem",
       },
     }).showToast();
   }
@@ -248,16 +248,16 @@ btnCompleteBuy.addEventListener("click", () => {
     duration: 3000,
     newWindow: false,
     close: true,
-    gravity: "top", // `top` or `bottom`
-    position: "right", // `left`, `center` or `right`
-    stopOnFocus: true, // Prevents dismissing of toast on hover
+    gravity: "top",
+    position: "right",
+    stopOnFocus: true,
     style: {
       background:
         "linear-gradient(to right, rgb(104, 179, 38), rgb(92, 181, 24))",
     },
     offset: {
-      x: "1rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-      y: "3.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      x: "1rem",
+      y: "3.5rem",
     },
   }).showToast();
 });

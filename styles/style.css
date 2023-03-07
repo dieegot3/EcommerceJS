@@ -1253,4 +1253,14 @@ h6 {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+#totalPrice {
+  padding: 19.2px 0;
+}
+
+.shopCartIcon {
+  color: #c427eb;
+  margin: auto;
+  border-color: none;
 }/*# sourceMappingURL=style.css.map */
