@@ -11,3 +11,6 @@ Funcionalidades del proyecto:
 - Ver el precio total de la compra hasta el momento
 - Finalizar la compra
 - Almacenamiento dinámico en local storage
+
+Link al deploy:
+https://dieegot3.github.io/ProyectoFinalDiaz/
