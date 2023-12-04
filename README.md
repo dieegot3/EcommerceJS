@@ -13,4 +13,4 @@ Funcionalidades del proyecto:
 - Almacenamiento dinámico en local storage
 
 Link al deploy:
-https://dieegot3.github.io/ProyectoFinalDiaz/
+https://dieegot3.github.io/EcommerceJS/
